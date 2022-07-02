@@ -1,0 +1,50 @@
+.kill{
+  width: 1em;
+  height: 1em;
+  border: 2px solid red;
+  color:#A10000;
+  cursor: pointer;
+  display:inline-block;
+  margin-left:1em;
+}
+
+#controls{
+  border: 2px solid black;
+  margin-bottom:1em;
+  margin-left:auto;
+  margin-right:auto;
+  padding:.5em;
+  border-radius:10px;
+  width: fit-content;
+  block-size: fit-content;
+  background-color:rgb(171,62,58);
+}
+
+#display{
+  background-color:rgb(252,218,34);
+  border: 1px solid black;
+  margin-bottom:1em;
+  margin-left:auto;
+  margin-right:auto;
+  width: 40em;
+  block-size: fit-content;
+  font-size: 2em;
+  padding: 1em;
+  text-align: center;
+}
+
+#saveList{
+  background-color:rgb(229,225,213);
+  margin-left:auto;
+  margin-right:auto;
+  width: 40em;
+  font-size: 1.25em;
+  padding: 1em;
+  text-align: center;
+}
+h1{
+  text-align: center;
+}
+body{
+  background-color:rgb(103,214,242);
+}

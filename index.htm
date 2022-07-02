@@ -6,10 +6,30 @@
 		<script type="text/javascript" src="script.js"></script>
   </head>
   <body>
+  <h1>Ciocie Cioelle Insult Generator</h1>
     <div>
-      <input type="button" id="butt" value="Generate"/>
-      <input type="button" id="save" value="Save"/>
-      <div id="display"></div>
+      <form id="controls">
+        <input type="button" id="butt" value="Generate"/>
+        <input type="button" id="save" value="Save"/><br>
+        <div>
+          <input type="checkbox" id="exclaim" checked>
+          <label for="base">Append Exclamation</label>
+        </div>
+        <div>
+          <input type="checkbox" id="autosave">
+          <label for="base">Auto-save</label>
+        </div>
+        Generator method:
+        <div>
+          <input type="radio" name="rollType" id="new" checked>
+          <label for="new">New</label>
+        </div>
+        <div>
+          <input type="radio" name="rollType" id="base">
+          <label for="base">Original</label>
+        </div>
+      </form>
+      <div id="display">-</div>
       <div id="saveList"></div>
     </div>
   </body>

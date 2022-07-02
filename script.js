@@ -11,6 +11,18 @@ function rollOneBase() {
   };
   return output;
 }
+function rollOneNew() {  
+  let outFirstAdjective = blob[0][Math.floor(Math.random() * blob[2].length)]
+  let outSecondAdjective = blob[1][Math.floor(Math.random() * blob[2].length)]
+  let outSubject = blob[2][Math.floor(Math.random() * blob[2].length)]
+  if( Math.random() > .65){
+    outFirstAdjective = "";
+  }  
+  if( Math.random() > .65){
+    outSecondAdjective = "";
+  }
+  return [outFirstAdjective,outSecondAdjective,outSubject].join(" ").trim();
+}
 function save(){
   
 }
@@ -18,12 +30,30 @@ window.onload = function(){
     console.log("r3eduy");
   let roll = document.getElementById("butt");
   let save = document.getElementById("save");
+  let rollNew = document.getElementById("new");
+  let rollBase = document.getElementById("base");
+  let exclaim = document.getElementById("exclaim");
+  let autosave = document.getElementById("autosave");
   let savedList = document.getElementById("saveList");
   let display = document.getElementById("display");
   roll.addEventListener("click", function(){
-    display.innerHTML = rollOneBase(); 
+    if(rollBase.checked){
+      display.innerHTML = rollOneBase(); 
+    } else {
+      display.innerHTML = rollOneNew(); 
+    }
+    if( exclaim.checked){
+      display.innerHTML = display.innerHTML + "!";
+    }
+    display.innerHTML = display.innerHTML.charAt(0).toUpperCase() + display.innerHTML.slice(1);
+    if(autosave.checked){
+      saveItem();
+    }
   });
-  save.addEventListener("click", function(){
+  
+  save.addEventListener("click", saveItem);
+  
+  function saveItem() {
     let saved = document.createElement("div");
     let kill = document.createElement("span");
     saved.innerHTML = display.innerHTML;
@@ -34,5 +64,5 @@ window.onload = function(){
     })
     saved.appendChild(kill);
     savedList.appendChild(saved);
-  });
+  }
 }
