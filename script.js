@@ -27,7 +27,6 @@ function save(){
   
 }
 window.onload = function(){
-    console.log("r3eduy");
   let roll = document.getElementById("butt");
   let save = document.getElementById("save");
   let rollNew = document.getElementById("new");
@@ -37,16 +36,16 @@ window.onload = function(){
   let savedList = document.getElementById("saveList");
   let display = document.getElementById("display");
   roll.addEventListener("click", function(){
-    if(rollBase.checked){
+    if( rollBase.checked ){
       display.innerHTML = rollOneBase(); 
     } else {
       display.innerHTML = rollOneNew(); 
     }
-    if( exclaim.checked){
+    if( exclaim.checked ){
       display.innerHTML = display.innerHTML + "!";
     }
     display.innerHTML = display.innerHTML.charAt(0).toUpperCase() + display.innerHTML.slice(1);
-    if(autosave.checked){
+    if( autosave.checked ){
       saveItem();
     }
   });
