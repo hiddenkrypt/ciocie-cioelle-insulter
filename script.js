@@ -27,7 +27,7 @@ function save(){
   
 }
 window.onload = function(){
-  let roll = document.getElementById("butt");
+  let roll = document.getElementById("gen");
   let save = document.getElementById("save");
   let rollNew = document.getElementById("new");
   let rollBase = document.getElementById("base");
@@ -35,7 +35,9 @@ window.onload = function(){
   let autosave = document.getElementById("autosave");
   let savedList = document.getElementById("saveList");
   let display = document.getElementById("display");
-  roll.addEventListener("click", function(){
+  
+  roll.addEventListener("click", rollIt);
+  function rollIt(){
     if( rollBase.checked ){
       display.innerHTML = rollOneBase(); 
     } else {
@@ -48,10 +50,11 @@ window.onload = function(){
     if( autosave.checked ){
       saveItem();
     }
-  });
-  
+  }
+  exclaim.checked = true;
+  autosave.checked = false;
+  rollNew.checked = true;
   save.addEventListener("click", saveItem);
-  
   function saveItem() {
     let saved = document.createElement("div");
     let kill = document.createElement("span");
@@ -64,4 +67,6 @@ window.onload = function(){
     saved.appendChild(kill);
     savedList.appendChild(saved);
   }
+  
+  rollIt();
 }
