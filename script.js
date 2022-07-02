@@ -3,7 +3,7 @@ var blob = [
   ["fumerous", "onerous", "ruminous", "pickerous", "slopful", "spoiledsome", "painsome", "lackerous", "lackawise", "dumbful", "noisesome", "bothery", "droolsome", "rashsome", "chatterly", "", "", "gobful", "flopsy", "complainsome", "whinesome", "tireful", "dripsome", "evilous", "raspful", "gruntsome", "wailful", "loosesome", "leaksome", "slimeful", ""], 
   ["bandersnatch", "strumpet", "lackawit", "lapdog", "layabout", "floozy", "tart", "blanket", "belt loosener", "strumpet", "empty-head", "bubblebrains", "slop bucket", "knuckle picker", "wobblehead", "sieve-head", "tart", "waistcoast", "drop-drawers", "blanket sucker", "loose-limbs", "nose tweaker", "idiot", "clown", "jackanape", "chatternap", "loose-gob", "busybody", "brick-picker", "chatter-head", "talkabout", "bubble-brains", "twiddler", "loose-neck", "bicycle", "harlot", "ooze", "fungus", "worm", "sausage merchant", "clam licker", "harlot", "skirt-groper", "skirt-lifter", "boot sucker", "flop-about", "loose-lips", "flap-a-lip", "trouser-thief", "slime", "skin-picker", "nipple tweaker", "know-nothing"]
 ];
-function rollOne() {  
+function rollOneBase() {  
   let output = "";
   for (var i = 0; i < blob.length; i++) {
     var table = blob[i];
@@ -21,7 +21,18 @@ window.onload = function(){
   let savedList = document.getElementById("saveList");
   let display = document.getElementById("display");
   roll.addEventListener("click", function(){
-    console.log("boop");
-    display.innerHTML = rollOne(); 
+    display.innerHTML = rollOneBase(); 
+  });
+  save.addEventListener("click", function(){
+    let saved = document.createElement("div");
+    let kill = document.createElement("span");
+    saved.innerHTML = display.innerHTML;
+    kill.classList.add("kill");
+    kill.innerHTML = "X";
+    kill.addEventListener("click", function(){
+      saved.remove();
+    })
+    saved.appendChild(kill);
+    savedList.appendChild(saved);
   });
 }
