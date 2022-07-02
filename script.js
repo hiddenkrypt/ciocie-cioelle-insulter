@@ -15,10 +15,10 @@ function rollOneNew() {
   let outFirstAdjective = blob[0][Math.floor(Math.random() * blob[2].length)]
   let outSecondAdjective = blob[1][Math.floor(Math.random() * blob[2].length)]
   let outSubject = blob[2][Math.floor(Math.random() * blob[2].length)]
-  if( Math.random() > .65){
+  if( Math.random() > .75){
     outFirstAdjective = "";
   }  
-  if( Math.random() > .65){
+  if( Math.random() > .75){
     outSecondAdjective = "";
   }
   return [outFirstAdjective,outSecondAdjective,outSubject].join(" ").trim();
@@ -29,6 +29,7 @@ function save(){
 window.onload = function(){
   let roll = document.getElementById("gen");
   let save = document.getElementById("save");
+  let clear = document.getElementById("clear");
   let rollNew = document.getElementById("new");
   let rollBase = document.getElementById("base");
   let exclaim = document.getElementById("exclaim");
@@ -38,6 +39,7 @@ window.onload = function(){
   
   roll.addEventListener("click", rollIt);
   function rollIt(){
+    console.log(rollBase.checked+", "+rollNew.checked);
     if( rollBase.checked ){
       display.innerHTML = rollOneBase(); 
     } else {
@@ -52,8 +54,9 @@ window.onload = function(){
     }
   }
   exclaim.checked = true;
-  autosave.checked = false;
+  autosave.checked = true;
   rollNew.checked = true;
+  
   save.addEventListener("click", saveItem);
   function saveItem() {
     let saved = document.createElement("div");
@@ -67,6 +70,8 @@ window.onload = function(){
     saved.appendChild(kill);
     savedList.appendChild(saved);
   }
-  
+  clear.addEventListener("click", function(){
+    savedList.innerHTML = "";
+  });
   rollIt();
 }
